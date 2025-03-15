@@ -10,6 +10,7 @@ app.post('/calculate-data', (req, res) => {
 
   try {
     const filePath = path.join('/faizan_PV_dir/', file);
+    console.log({filePath});
     if (!fs.existsSync(filePath)) {
       return res.status(404).json({
         file,
@@ -18,6 +19,7 @@ app.post('/calculate-data', (req, res) => {
     }
 
     const fileContent = fs.readFileSync(filePath, 'utf-8');
+    console.log({fileContent});
 
     const rows = fileContent.trim().split('\n');
     const headers = rows[0].split(',');
@@ -31,6 +33,8 @@ app.post('/calculate-data', (req, res) => {
 
     const filteredData = data.filter((row) => row.product === product);
 
+    console.log({filteredData});
+
     if (filteredData.length === 0) {
       return res.json({
         file,
@@ -42,6 +46,8 @@ app.post('/calculate-data', (req, res) => {
       (acc, row) => acc + parseFloat(row.amount),
       0
     );
+
+    console.log({sum});
 
     return res.json({
       file,
