@@ -11,7 +11,6 @@ spec:
   selector:
     matchLabels:
       app: image-2
-
   template:
     metadata:
       labels:
