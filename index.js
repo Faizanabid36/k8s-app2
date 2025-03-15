@@ -9,7 +9,7 @@ app.post('/calculate-data', (req, res) => {
   const { file, product } = req.body;
 
   try {
-    const filePath = path.join(__dirname, '/app/', file);
+    const filePath = path.join('/faizan_PV_dir/', file);
     if (!fs.existsSync(filePath)) {
       return res.status(404).json({
         file,
