@@ -43,7 +43,7 @@ app.post('/calculate-data', (req, res) => {
     }
 
     const sum = filteredData.reduce(
-      (acc, row) => acc + parseFloat(row.amount),
+      (acc, row) => acc + parseFloat(row.amount.trim()),
       0
     );
 
