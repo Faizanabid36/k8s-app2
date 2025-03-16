@@ -11,6 +11,7 @@ spec:
   selector:
     matchLabels:
       app: image-2
+
   template:
     metadata:
       labels:
@@ -26,7 +27,6 @@ spec:
           volumeMounts:
             - name: standard-volume
               mountPath: /faizan_PV_dir
-
       volumes:
         - name: standard-volume
           persistentVolumeClaim:
