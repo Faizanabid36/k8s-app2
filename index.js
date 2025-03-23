@@ -6,6 +6,7 @@ const app = express();
 app.use(express.json());
 
 app.post('/calculate-data', (req, res) => {
+  console.log('Request received:', req.body);
   const { file, product } = req.body;
 
   try {
@@ -56,7 +57,9 @@ app.post('/calculate-data', (req, res) => {
   } catch (error) {
     return res.status(500).json({
       file,
-      error: 'An error occurred while processing the file.'
+      error: 'An error occurred while processing the file.',
+      message: error.message,
+      c: 'two'
     });
   }
 });
