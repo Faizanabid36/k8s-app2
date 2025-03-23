@@ -11,7 +11,6 @@ app.post('/calculate-data', (req, res) => {
 
   try {
     const filePath = path.join('/faizan_PV_dir/', file);
-    console.log({filePath});
     if (!fs.existsSync(filePath)) {
       return res.status(404).json({
         file,
@@ -20,7 +19,6 @@ app.post('/calculate-data', (req, res) => {
     }
 
     const fileContent = fs.readFileSync(filePath, 'utf-8');
-    console.log({fileContent});
 
     const rows = fileContent.trim().split('\n');
     const headers = rows[0].split(',');
