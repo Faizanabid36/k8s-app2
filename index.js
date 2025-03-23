@@ -56,8 +56,7 @@ app.post('/calculate-data', (req, res) => {
   } catch (error) {
     return res.status(500).json({
       file,
-      error: 'An error occurred while processing the file.',
-      test: error.message
+      error: 'An error occurred while processing the file.'
     });
   }
 });
